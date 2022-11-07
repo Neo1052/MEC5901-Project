@@ -1,35 +1,3 @@
-# MEC5901-Project
-Machine Leanring Course Project
-The score is made up of three parts: presentation, final report and peer evaluation.
-
-• 20-miniutes presentation and 5-miniutes Q&A (35% by instructor & TA+15% by the students). 
-The presentation should include
-§ Description of the communications problems that you are interested in studying.
-§ Review of some state-of-art results in the literature. 
-§ Mathematical formulation of the problem (if any).
-§ Description of the data set you used and the machine learning methods that you tried or thought about trying. 
-§ Summary of the final approach you used and why you chose that approach. 
-§ Summary of the results. 
-§ Conclusions. 
-
-Grading criterial
-§ Background Introduction
-¨ Are the purpose and rationale of the project stated clearly? 
-¨ Are the project aims and objectives clearly stated? 
-§ Design and results
-¨ Are the variables / parameters in the project identified and described?
-¨ Is the analysis presented clearly and interpretation of results covered in sufficient 
-detail?
-¨ Are the advantages of the proposed work justified? 
-¨ What were the problems encountered during implementation, what was the impact 
-of the problems and how were they addressed?
-§ Presentation
-¨ Good layout, logical sequence 
-¨ Does each table/figure/chart stand on its own, clear and self-explanatory?
-¨ Expression fluency
-
-• Each group will need to submit a final report (40%). A template will be provided later.
-
 #MEC5901项目
 机器学习课程项目
 评分由三部分组成：陈述、最终报告和同行评价。
