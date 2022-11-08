@@ -52,13 +52,14 @@ RefineNet装置的两个特点如下。首先，RefineNet单元的输出大小�
 # 训练与实验方法
 还没有细看，但有几个问题：
 （1）学习的过程是监督还是非监督？任务是回归、聚类or？
+答：非监督。任务是降维/特征提取。
 （2）是否需要考虑多个机器学习方案？要怎么说明我们选择CNN的原因？
 （3）每一层的设计，以及理由？【感觉这个更加关键，前面的部分可以在理解的基础上用作者的代码实现，这一部分需要我们拓展】
 
 # 现在的实施思路
 阶段1：搞清论文中的细节，提出研究内容的完整框架，
-阶段2：
-阶段3：
+阶段2：拆解代码，同时探究实验设计背后的逻辑
+阶段3：ppt/report准备
 ![](https://cdn.nlark.com/yuque/0/2022/jpeg/26322346/1667914696794-1b1afce3-1390-4be1-8cdb-3c478fa04be6.jpeg#averageHue=%23e3e1db&crop=0&crop=0&crop=1&crop=1&from=url&height=384&id=jDEvk&margin=%5Bobject%20Object%5D&originHeight=475&originWidth=770&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=623)
 
 - [ ] 写出所研究问题的背景，对存在的问题进行描述
