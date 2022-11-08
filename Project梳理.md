@@ -2,7 +2,7 @@
 ![f9635f8289eecc2f11631734c7901d4.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/26322346/1667914696794-1b1afce3-1390-4be1-8cdb-3c478fa04be6.jpeg#averageHue=%23e3e1db&clientId=ubf821477-4037-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=380&id=u773df6ea&margin=%5Bobject%20Object%5D&name=f9635f8289eecc2f11631734c7901d4.jpg&originHeight=475&originWidth=770&originalType=binary&ratio=1&rotation=0&showTitle=false&size=68580&status=done&style=none&taskId=u6ef9e82b-2fa0-4edb-a02d-2379406dcb8&title=&width=616)
 
 # 问题背景：
-（1）频分双工模式下需要将下行链路的CSI反馈回基站，以便对数据流进行预编码。
+（1）频分双工模式下，由于上下行链路不在同一个工作频点，信道互异性较弱，因此下行链路CSI不能直接获取。通常需要将下行链路的CSI反馈回基站，以便对数据流进行预编码。
 ![](https://cdn.nlark.com/yuque/0/2022/png/26322346/1667892694204-49cb75fb-58f3-4836-a495-fcae8bacb377.png#averageHue=%23fbfbfb&crop=0&crop=0&crop=1&crop=1&from=url&id=iG8Qf&margin=%5Bobject%20Object%5D&originHeight=584&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)  
 （2）直接传输会消耗过多资源，通常使用矢量量化或基于码本的方法来减少反馈开销。  
 （3）传统的CS（压缩感知）方法有以下三个缺点：假设了信道稀疏、使用随机投影而没用充分利用信道结构、使用迭代方法重建而速度较慢。  
