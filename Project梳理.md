@@ -3,15 +3,13 @@
 
 # 问题背景：
 （1）频分双工模式下需要将下行链路的CSI反馈回基站，以便对数据流进行预编码。
-![](https://cdn.nlark.com/yuque/0/2022/png/26322346/1667892694204-49cb75fb-58f3-4836-a495-fcae8bacb377.png#averageHue=%23fbfbfb&crop=0&crop=0&crop=1&crop=1&from=url&id=iG8Qf&margin=%5Bobject%20Object%5D&originHeight=584&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-（2）直接传输会消耗过多资源，通常使用矢量量化或基于码本的方法来减少反馈开销。
-（3）传统的CS（压缩感知）方法有以下三个缺点：假设了信道稀疏、使用随机投影而没用充分利用信道结构、使用迭代方法重建而速度较慢。
-（4）论文使用了深度学习方案解决了上述问题：CsiNet 感知与恢复网络
-
-- 编码器：CsiNet不是使用随机投影，而是从原始信道矩阵学习变换，通过训练数据压缩表示（码字）。该算法与人类对频道分布的知识无关，而是直接从训练数据中学习如何有效地使用频道结构。
-- 解码器：CsiNet学习从码字到原始信道的逆变换。逆变换是非迭代的，并且比迭代算法快多个数量级。
-
-（5）该方法可以在FDD MIMO系统中用作反馈协议。事实上，CsiNet与DL中的自动编码器[9，Ch.14]密切相关，后者用于学习一组数据的表示（编码），通常用于降维。
+![](https://cdn.nlark.com/yuque/0/2022/png/26322346/1667892694204-49cb75fb-58f3-4836-a495-fcae8bacb377.png#averageHue=%23fbfbfb&crop=0&crop=0&crop=1&crop=1&from=url&id=iG8Qf&margin=%5Bobject%20Object%5D&originHeight=584&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)  
+（2）直接传输会消耗过多资源，通常使用矢量量化或基于码本的方法来减少反馈开销。  
+（3）传统的CS（压缩感知）方法有以下三个缺点：假设了信道稀疏、使用随机投影而没用充分利用信道结构、使用迭代方法重建而速度较慢。  
+（4）论文使用了深度学习方案解决了上述问题：CsiNet 感知与恢复网络  
+- 编码器：CsiNet不是使用随机投影，而是从原始信道矩阵学习变换，通过训练数据压缩表示（码字）。该算法与人类对频道分布的知识无关，而是直接从训练数据中学习如何有效地使用频道结构。  
+- 解码器：CsiNet学习从码字到原始信道的逆变换。逆变换是非迭代的，并且比迭代算法快多个数量级。   
+（5）该方法可以在FDD MIMO系统中用作反馈协议。事实上，CsiNet与DL中的自动编码器[9，Ch.14]密切相关，后者用于学习一组数据的表示（编码），通常用于降维。 
 （6）使用该方案可以以显著提高的重建质量来恢复CSI。即使以过低的压缩率进行重构，也保留了允许有效波束形成增益的足够内容。
 
 # 系统模型与CSI反馈——设计方案
@@ -36,9 +34,9 @@ CSI反馈方法如下。一旦在UE侧获取了信道矩阵~H，我们在（2）
 
 # CSINET
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/26322346/1667916415133-37171132-0c00-4116-8955-33ee3a434b6b.png#averageHue=%23eef1e8&clientId=uba954218-1460-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=307&id=u54649441&margin=%5Bobject%20Object%5D&name=image.png&originHeight=384&originWidth=1219&originalType=binary&ratio=1&rotation=0&showTitle=false&size=114959&status=done&style=none&taskId=u0b161bb8-b8e3-46ba-b2fd-0d831c49b27&title=&width=975.2)   
-（1）利用传统神经网络（CNN）作为编码器和解码器   
-（2）编码器：卷积层——重塑层——全连接层——生成码字 【前两层模拟CS的投影并用作编码器】   
-（3）解码器：解码——重塑层——RefineNet 细化单元【输入层 - 卷积1 - 卷积2 - 卷积3（重构）】——填充——激活函数——细化.....   
+（1）利用传统神经网络（CNN）作为编码器和解码器  
+（2）编码器：卷积层——重塑层——全连接层——生成码字 【前两层模拟CS的投影并用作编码器】  
+（3）解码器：解码——重塑层——RefineNet 细化单元【输入层 - 卷积1 - 卷积2 - 卷积3（重构）】——填充——激活函数——细化.....  
 （4）特点   
 RefineNet装置的两个特点如下。首先，RefineNet单元的输出大小等于信道矩阵大小。这一概念受到[10]和[11]的启发。
 为了降低维数，几乎所有CNN的传统实现都涉及池化层，这是一种下采样形式。与传统实现相比，我们的目标是细化而不是降维。【如何做到细化？】
