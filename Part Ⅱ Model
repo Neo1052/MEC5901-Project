@@ -1,4 +1,5 @@
-# System Model 
+# 系统模型
+System Model 
   ## configuration:
     -single-cell downlink massive MIMO
     -BS: with N_t >> 1 transmit antennas
