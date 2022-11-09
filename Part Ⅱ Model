@@ -1,0 +1,10 @@
+#System Model
+  
+  ## configuration:
+    -single-cell downlink massive MIMO
+    -BS: with N_t >> 1 transmit antennas
+    -UE: single receiver antenna
+    -operation: OFDM with Nc^~ subcarriers
+ 
+ ## recevied signal:
+    
